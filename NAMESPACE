@@ -1,0 +1,7 @@
+useDynLib(TP.idm)
+importFrom("graphics","layout","layout.show","lines","plot","title")
+importFrom("stats","qnorm","var")
+export(plot.TPidm, print.TPidm, summary.TPidm, TPidm)
+S3method("print","TPidm")
+S3method("plot","TPidm")
+S3method("summary","TPidm")
