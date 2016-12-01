@@ -36,6 +36,8 @@ Further arguments to  print.
 %%}
 \note{
   The print function displays the method used, the user-supplied times s and t, the possible transitions, the estimated transition probabilities and, optionally, confidence limits and variances.
+  
+  If \code{cov} was specified, the print function provides the transition probabilities \eqn{P_{ij}}{P_{ij}}(s,t) for each level of covariate.
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~

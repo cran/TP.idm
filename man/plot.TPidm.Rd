@@ -8,7 +8,7 @@ Plot method for a TPidm object
 Plot method for an object of class \sQuote{TPidm}. It draws the estimated occupation probabilities (if s = 0) or transition probabilities (if s > 0) and confidence intervals (only available if \code{CI} is \code{TRUE}) in a basic scatterplot or in a multipanel layout.
 }
 \usage{
-\method{plot}{TPidm}(x, chosen.tr = "ALL", ...)
+\method{plot}{TPidm}(x, chosen.tr = "ALL", col = "black", ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -17,6 +17,8 @@ An object of class \sQuote{TPidm}.
 }
   \item{chosen.tr}{
 Character vector of the form \sQuote{c(\dQuote{from to}, \dQuote{from to})} specifying which transitions should be plotted. Default, all the transition probabilities are plotted.
+}
+  \item{col}{Character vector specifying colors for each curves. Default \code{col}=\dQuote{black}.
 }
   \item{\dots}{
 Further arguments to plot.
@@ -51,19 +53,26 @@ Further arguments to plot.
 data(colonTP)
 
 # create a TPidm object with s = 0, t = "last" (default),
-# CI = FALSE (default) and method = "NM" (default):
-tp_s0_nm <- TPidm(colonTP, s = 0)
+# CI = FALSE and method = "NM" (default):
+nm0 <- TPidm(colonTP, s = 0, CI=FALSE)
 
 # plot all possible transitions without CI:
-plot(tp_s0_nm)
+plot(nm0)
 
 # or 
 # create a TPidm object with s = 0, t = "last" (default),
-# CI = TRUE and method = "AJ":
-tp_s0_aj_ci <- TPidm(colonTP, s = 0, CI = TRUE, method = "AJ")
+# CI = TRUE (default) and method = "AJ":
+aj0ci <- TPidm(colonTP, s = 0, method = "AJ")
 
 # plot transitions "1 2" and "1 3" with CI:
-plot(tp_s0_aj_ci, chosen.tr = c("1 2", "1 3"))
+plot(aj0ci, chosen.tr = c("1 2", "1 3"))
+
+# create a TPidm object with s = 365, t = 1095, cov = "rx",
+# CI = FALSE and method = "NM" (default):
+nm365cov <- TPidm(colonTP, s = 365, t = 1095, cov = "rx", CI=FALSE)
+
+# plot transitions "1 2" and "1 3" without CI:
+plot(nm365cov, chosen.tr = c("1 2", "1 3"), col=c("blue","red","green"))
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

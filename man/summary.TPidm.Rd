@@ -36,6 +36,8 @@
 %%}
 \note{
   The summary function prints the method used, the user-supplied times s and t, the possible transitions, the estimated transition probabilities and, optionally, confidence limits and variances.
+  
+    If \code{cov} is specified, the summary function provides the transition probabilities \eqn{P_{ij}}{P_{ij}}(s,t) for each level of covariate.
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
@@ -45,11 +47,10 @@
 %%}
 \examples{
 data(colonTP)
-# create a TPidm object with s = 365, t = "last" (default),
-# CI = FALSE (default) and method = "NM" (default):
-tp_s365_nm <- TPidm(colonTP, s = 365)
-
-summary(tp_s365_nm)
+# create a TPidm object with s = 365, t = 1095, cov = "rx",
+# CI = FALSE and method = "NM" (default):
+nm365cov <- TPidm(colonTP, s = 365, t = 1095, cov = "rx", CI=FALSE)
+summary(nm365cov) # summarizing the results
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

@@ -31,6 +31,7 @@ de Uña-Álvarez J. and Meira-Machado L. (2015). Nonparametric estimation of tra
 
 Meira-Machado L. F., de Uña-Álvarez J. and Cadarso-Suárez C. (2006). Nonparametric estimation of transition probabilities in a non-Markov illness-death model. \emph{Lifetime Data Annal} \bold{12(3)}, 325--344.
 }
+
 \keyword{ package }
 %%\seealso{
 %%~~ Optional links to other man pages, e.g. ~~
@@ -40,8 +41,8 @@ Meira-Machado L. F., de Uña-Álvarez J. and Cadarso-Suárez C. (2006). Nonparam
 data(colonTP)
 
 # create a TPidm object with s = 0, t = "last" (default),
-# CI = TRUE and method = "AJ":
-tp_s0_aj_ci <- TPidm(colonTP, s = 0, method = "AJ", CI = TRUE)
-summary(tp_s0_aj_ci) # summarizing the results
-plot(tp_s0_aj_ci) # plotting all occupation probabilities
+# CI = TRUE (default) and method = "AJ":
+aj0ci <- TPidm(colonTP, s = 0, method = "AJ")
+summary(aj0ci) # summarizing the results
+plot(aj0ci) # plotting all occupation probabilities
 }

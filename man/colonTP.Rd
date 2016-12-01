@@ -42,7 +42,7 @@
   
   Lin D. Y. (1994). Cox regression analysis of multivariate failure time data: the marginal approach. \emph{Statistics in Medicine} \bold{13(21)}, 2233--2247.
   
-  Meira-Machado L., de Uña-Álvarez J. and Datta S. (2014). Nonparametric estimation of conditional transition probabilities in a non-Markov illness-death model. Computational Statistics, in press. DOI 10.1007/s00180-014-0538-6.
+  Meira-Machado L., de Uña-Álvarez J. and Datta S. (2014). Nonparametric estimation of conditional transition probabilities in a non-Markov illness-death model. Computational Statistics, in press. <DOI:10.1007/s00180-014-0538-6>.
   
   Moertel C. G., Fleming T. R., MacDonald J. S., Haller D. G., Laurie J. A., Goodman P. J., Ungerleider J. S., Emerson W. A., Tormey D. C., Glick J. H., Veeder M. H. and Maillard J. A. (1990). Levamisole and fluorouracil for adjuvant therapy of resected colon carcinoma. \emph{New England Journal of Medicine} \bold{322(6)}, 352--358.
   
