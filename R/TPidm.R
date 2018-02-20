@@ -10,7 +10,7 @@ function(data, s, t="last", cov=NULL, CI=TRUE, level=0.95, ci.transformation="li
     } else{
       data<-data[,c("time1","event1","Stime","event",cov)]
       if(length(names(data))!=5) stop("'data' must have 5 variables")
-      if(sum(c("time1","event1","Stime","event",cov)==names(data))!=5) stop("'data' must contain the rigth variables")
+      if(sum(c("time1","event1","Stime","event",cov)==names(data))!=5) stop("'data' must contain the rigth variables")           
       cc<-match(cov,names(data))
       if(!is.factor(data[,cc])) stop("In cov a factor is needed")
     }
@@ -45,7 +45,7 @@ function(data, s, t="last", cov=NULL, CI=TRUE, level=0.95, ci.transformation="li
     # non-absorbing states
     tr.states <- states[!states=="3"]
     
-    if (is.null(cov)){
+      if (is.null(cov)){
       # choose method
       method.type<-c("NM","AJ")
       m<-charmatch(method,method.type,nomatch=0)
@@ -208,7 +208,7 @@ function(data, s, t="last", cov=NULL, CI=TRUE, level=0.95, ci.transformation="li
           if(CI==TRUE){
             times_i<-results.times.NM[[i]]
             probs_i<-results.all.probs.NM[[i]]
-            
+
             
             # var using Titman method:
             variances<- var.NM(data_i, ns, states, tr.states, s, t, probs_i) 
@@ -220,59 +220,59 @@ function(data, s, t="last", cov=NULL, CI=TRUE, level=0.95, ci.transformation="li
             results.ci.NM[[i]]<-ci$CI
           }
         }
-        
+
         
         m.t.nm <-vector('list',n.cat)
         for(i in 1:n.cat){
           m.t.nm[i]<-max(results.times.NM[[i]])
         }
+
+names(results.times.NM) <- paste(rep("t",n.cat), sep="")
+names(results.all.probs.NM) <- names(results.probs.NM) <- names(results.all.est.NM) <- paste(rep("probs",n.cat),sep="")
+names(m.t.nm) <- paste(rep("t",n.cat), sep="")
+
+if(CI==TRUE){
+  names(results.all.ci.NM)<-paste(rep("CI",n.cat), sep="")
+  names(results.ci.NM)<-paste(rep("CI",n.cat), sep="")
+}
         
-        names(results.times.NM) <- paste(rep("t",n.cat), sep="")
-        names(results.all.probs.NM) <- names(results.probs.NM) <- names(results.all.est.NM) <- paste(rep("probs",n.cat),sep="")
-        names(m.t.nm) <- paste(rep("t",n.cat), sep="")
-        
-        if(CI==TRUE){
-          names(results.all.ci.NM)<-paste(rep("CI",n.cat), sep="")
-          names(results.ci.NM)<-paste(rep("CI",n.cat), sep="")
-        }
-        
-        if (s==0){
-          p.trans<-c("1 1", "1 2", "1 3")
-        }else{
-          p.trans<-c("1 1", "1 2", "1 3", "2 2", "2 3")
-        }
-        
-        if(CI==TRUE){
-          # results:
-          res <- list(
-            # states information:
-            cov=cov, names.cov=names.cov,
-            method=method,s=s,
-            t=m.t.nm,
-            states=states, ns=ns, tr.states=tr.states, 
-            ci.transformation=ci.transformation,
-            # event times:
-            times=results.times.NM,
-            # confidence intervals:
-            probs=results.ci.NM, all.probs=results.all.ci.NM,
-            # posible transitions:
-            p.trans=p.trans,CI=CI)
-        }else{
-          # results:
-          res <- list(
-            # states information:
-            cov=cov, names.cov=names.cov,
-            method=method,s=s,
-            t=m.t.nm,
-            states=states, ns=ns, tr.states=tr.states,
-            ci.transformation=ci.transformation,
-            # event times:
-            times=results.times.NM,
-            # occupation or transition probabilities:
-            probs=results.probs.NM, all.probs=results.all.est.NM,
-            # posible transitions:
-            p.trans=p.trans,CI=CI)
-        }
+if (s==0){
+  p.trans<-c("1 1", "1 2", "1 3")
+}else{
+  p.trans<-c("1 1", "1 2", "1 3", "2 2", "2 3")
+}
+
+if(CI==TRUE){
+  # results:
+  res <- list(
+    # states information:
+    cov=cov, names.cov=names.cov,
+    method=method,s=s,
+    t=m.t.nm,
+    states=states, ns=ns, tr.states=tr.states, 
+    ci.transformation=ci.transformation,
+    # event times:
+    times=results.times.NM,
+    # confidence intervals:
+    probs=results.ci.NM, all.probs=results.all.ci.NM,
+    # posible transitions:
+    p.trans=p.trans,CI=CI)
+}else{
+  # results:
+  res <- list(
+    # states information:
+    cov=cov, names.cov=names.cov,
+    method=method,s=s,
+    t=m.t.nm,
+    states=states, ns=ns, tr.states=tr.states,
+    ci.transformation=ci.transformation,
+    # event times:
+    times=results.times.NM,
+    # occupation or transition probabilities:
+    probs=results.probs.NM, all.probs=results.all.est.NM,
+    # posible transitions:
+    p.trans=p.trans,CI=CI)
+}
       }
       if (m==2){
         
@@ -344,62 +344,62 @@ function(data, s, t="last", cov=NULL, CI=TRUE, level=0.95, ci.transformation="li
             results.ci.AJ[[ii]]<-ci$CI
           }
         }
-        
+              
         m.t.aj <-vector('list',n.cat)
         for(i in 1:n.cat){
           m.t.aj[i]<-max(results.times.AJ[[i]])
         }
-        
-        names(results.times.AJ) <- paste(rep("t",n.cat), sep="")
-        names(results.probs.AJ) <- names(results.all.est.AJ) <- paste(rep("probs",n.cat), sep="")
-        names(m.t.aj) <- paste(rep("t",n.cat), sep="")
-        
-        if(CI==TRUE){
-          names(results.all.ci.AJ)<-paste(rep("CI",n.cat), sep="")
-          names(results.ci.AJ)<-paste(rep("CI",n.cat), sep="")
-        }
-        
-        if (s==0){
-          p.trans<-c("1 1", "1 2", "1 3")
-        }else{
-          p.trans<-c("1 1", "1 2", "1 3", "2 2", "2 3")
-        } 
-        
-        
-        if(CI==TRUE){
-          # results:
-          res <- list(
-            # states information:
-            cov=cov, names.cov=names.cov,
-            method=method,s=s,
-            t=m.t.aj,
-            states=states, ns=ns, tr.states=tr.states, 
-            ci.transformation=ci.transformation,
-            # event times:
-            times=results.times.AJ,
-            # confidence intervals:
-            probs=results.ci.AJ, all.probs=results.all.ci.AJ,
-            # posible transitions:
-            p.trans=p.trans,CI=CI)
-        }else{
-          # results:
-          res <- list(
-            # states information:
-            cov=cov, names.cov=names.cov,
-            method=method,s=s,
-            t=m.t.aj,
-            states=states, ns=ns, tr.states=tr.states,
-            ci.transformation=ci.transformation,
-            # event times:
-            times=results.times.AJ,
-            # occupation or transition probabilities:
-            probs=results.probs.AJ, all.probs=results.all.est.AJ,
-            # posible transitions:
-            p.trans=p.trans,CI=CI)
-        }      
+
+names(results.times.AJ) <- paste(rep("t",n.cat), sep="")
+names(results.probs.AJ) <- names(results.all.est.AJ) <- paste(rep("probs",n.cat), sep="")
+names(m.t.aj) <- paste(rep("t",n.cat), sep="")
+
+if(CI==TRUE){
+  names(results.all.ci.AJ)<-paste(rep("CI",n.cat), sep="")
+  names(results.ci.AJ)<-paste(rep("CI",n.cat), sep="")
+}
+
+if (s==0){
+  p.trans<-c("1 1", "1 2", "1 3")
+}else{
+  p.trans<-c("1 1", "1 2", "1 3", "2 2", "2 3")
+} 
+
+
+if(CI==TRUE){
+  # results:
+  res <- list(
+    # states information:
+    cov=cov, names.cov=names.cov,
+    method=method,s=s,
+    t=m.t.aj,
+    states=states, ns=ns, tr.states=tr.states, 
+    ci.transformation=ci.transformation,
+    # event times:
+    times=results.times.AJ,
+    # confidence intervals:
+    probs=results.ci.AJ, all.probs=results.all.ci.AJ,
+    # posible transitions:
+    p.trans=p.trans,CI=CI)
+}else{
+  # results:
+  res <- list(
+    # states information:
+    cov=cov, names.cov=names.cov,
+    method=method,s=s,
+    t=m.t.aj,
+    states=states, ns=ns, tr.states=tr.states,
+    ci.transformation=ci.transformation,
+    # event times:
+    times=results.times.AJ,
+    # occupation or transition probabilities:
+    probs=results.probs.AJ, all.probs=results.all.est.AJ,
+    # posible transitions:
+    p.trans=p.trans,CI=CI)
+}      
       }
-    }
-    
+      }
+
     
     res$call<-match.call()
     class(res) = "TPidm"

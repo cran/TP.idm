@@ -30,7 +30,7 @@
   }
 }
 \note{
-  The study is originally described in Laurie et al. (1989). The main report is found in Moertel et al. (1990). This data set is closet to that of the final report in Moertel et al. (1991). A version of the data with less follow-up time was used in the paper by Lin (1994). This data set has been used for illustration purposes in a number of papers, including Meira-Machado et al. (2014) and de Uña-Álvarez and Meira-Machado (2015).
+  The study is originally described in Laurie et al. (1989). The main report is found in Moertel et al. (1990). This data set is closet to that of the final report in Moertel et al. (1991). A version of the data with less follow-up time was used in the paper by Lin (1994). This data set has been used for illustration purposes in a number of papers, including Meira-Machado et al. (2015) and de Uña-Álvarez and Meira-Machado (2015).
 }
 %%\source{
 %%  ~~ reference to a publication or URL from which the data were obtained ~~
@@ -42,7 +42,7 @@
   
   Lin D. Y. (1994). Cox regression analysis of multivariate failure time data: the marginal approach. \emph{Statistics in Medicine} \bold{13(21)}, 2233--2247.
   
-  Meira-Machado L., de Uña-Álvarez J. and Datta S. (2014). Nonparametric estimation of conditional transition probabilities in a non-Markov illness-death model. Computational Statistics, in press. <DOI:10.1007/s00180-014-0538-6>.
+  Meira-Machado L., de Uña-Álvarez J. and Datta S. (2015). Nonparametric estimation of conditional transition probabilities in a non-Markov illness-death model. Computational Statistics \bold{30}, 377--397.
   
   Moertel C. G., Fleming T. R., MacDonald J. S., Haller D. G., Laurie J. A., Goodman P. J., Ungerleider J. S., Emerson W. A., Tormey D. C., Glick J. H., Veeder M. H. and Maillard J. A. (1990). Levamisole and fluorouracil for adjuvant therapy of resected colon carcinoma. \emph{New England Journal of Medicine} \bold{322(6)}, 352--358.
   

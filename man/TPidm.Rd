@@ -40,7 +40,7 @@ ci.transformation = "linear", method = "NM")
 }
 }
 \details{
-  If s = 0 this function TPidm reports the state occupation probabilities at time t. For s > 0, the transition probabilities are provided. The default method \dQuote{NM} computes the estimator proposed by de Uña-Álvarez and Meira-Machado (2015), which is consistent regardless the Markov assumption. To fit a Markovian transition probability matrix, use the \dQuote{AJ} method. Note that the Aalen-Johansen occupation probabilities are consistent even when the process is non-Markov (Datta and Satten, 2001), but this is not true for the Aalen-Johansen transition probabilities (Meira-Machado et al., 2006). If \code{CI} is \code{TRUE} (default), TPidm calculates the estimated variance and the confidence intervals by using the plug-in variance (method = \dQuote{NM}), or the standard formulas for Markovian processes (method = \dQuote{AJ}, see Andersen et al., 1993).
+  If s = 0 this function TPidm reports the state occupation probabilities at time t. For s > 0, the transition probabilities are provided. The default method \dQuote{NM} computes the estimator proposed by de Uña-Álvarez and Meira-Machado (2015), which is consistent regardless the Markov assumption. To fit a Markovian transition probability matrix, use the \dQuote{AJ} method. Note that the Aalen-Johansen occupation probabilities are consistent even when the process is non-Markov (Datta and Satten, 2001), but this is not true for the Aalen-Johansen transition probabilities (Meira-Machado et al., 2006). If \code{CI} is \code{TRUE} (default), TPidm calculates the estimated variance and the confidence intervals by using the plug-in variance described in Balboa and de Uña-Álvarez (2018) (method = \dQuote{NM}), or the standard formulas for Markovian processes (method = \dQuote{AJ}, see Andersen et al., 1993).
   }
 \value{
   An object of class \sQuote{TPidm}. It is a list containing the following objects:
@@ -68,6 +68,8 @@ If \code{cov} is specified, the main function provides estimations of transition
  de Uña-Álvarez J. and Meira-Machado L. (2015). Nonparametric estimation of transition probabilities in a non-Markov illness-death model: a comparative study. \emph{Biometrics} \bold{71}, 364--375.
  
  Meira-Machado L. F., de Uña-Álvarez J. and Cadarso-Suárez C. (2006). Nonparametric estimation of transition probabilities in a non-Markov illness-death model. \emph{Lifetime Data Anal} \bold{12(3)}, 325--344.
+ 
+ Balboa-Barreiro V., de Uña-Álvarez J. (2018). Estimation of Transition Probabilities for the Illness-Death Model: Package \code{TP.idm}. \emph{Journal of Statistical Software} \bold{83(10)}, 1--19.
 }
 %%\author{
 %%  ~~who you are~~

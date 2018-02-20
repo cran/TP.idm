@@ -30,6 +30,8 @@ Datta S. and Satten G. A. (2001). Validity of the Aalen-Johansen estimators of s
 de Uña-Álvarez J. and Meira-Machado L. (2015). Nonparametric estimation of transition probabilities in a non-Markov illness-death model: a comparative study. \emph{Biometrics} \bold{71}, 364--375.
 
 Meira-Machado L. F., de Uña-Álvarez J. and Cadarso-Suárez C. (2006). Nonparametric estimation of transition probabilities in a non-Markov illness-death model. \emph{Lifetime Data Annal} \bold{12(3)}, 325--344.
+
+Balboa-Barreiro V., de Uña-Álvarez J. (2018). Estimation of Transition Probabilities for the Illness-Death Model: Package \code{TP.idm}. \emph{Journal of Statistical Software} \bold{83(10)}, 1--19.
 }
 
 \keyword{ package }
