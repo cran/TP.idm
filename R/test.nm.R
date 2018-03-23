@@ -31,39 +31,39 @@ function(data, s, t="last"){
     
     
     # estimate both methods
-
-      # method 'NM'
-      # prepare data set and NM method:
-      NM.est<- fun.NM(data, states, s, t, tr.states)
-      
-      # method 'AJ'
-      # start time ==0
-      data$start.time<-0
-      
-      # initial probabilities for each initial state
-      i.state<-integer(length(data[,1]))
-      for(i in 1:length(data[,1])){
-        if(data$start.time[i]==0) i.state[i]=1
-        if(data$start.time[i]==data$time1[i]) i.state[i]=2
-        if(data$start.time[i]==data$Stime[i]) i.state[i]=3
-      }
-      i.state <- factor(i.state,levels=states,labels=states)
-      
-      initial.probs <- prop.table(table(i.state))
-      
-      
-      # prepare data set to compute AJ method:
-      ds.prep.AJ <- prep.data.AJ(data, states, tr.states)
-      
-      # reduces to event times:
-      ds.event.AJ <- prep.data.event.AJ(ds.prep.AJ$dNs, ds.prep.AJ$Ys, ds.prep.AJ$sum_dNs, states, tr.states)
-      event.times <- as.numeric(as.character(rownames(ds.event.AJ$dNs)))
-      
-      # AJ estimator:
-      AJ.est <- fun.AJ(ns,states, ds.event.AJ$dNs, ds.event.AJ$Ys, ds.event.AJ$sum_dNs,
-                       s, t,  event.times, initial.probs)
-      
-      ## plot:
+    
+    # method 'NM'
+    # prepare data set and NM method:
+    NM.est<- fun.NM(data, states, s, t, tr.states)
+    
+    # method 'AJ'
+    # start time ==0
+    data$start.time<-0
+    
+    # initial probabilities for each initial state
+    i.state<-integer(length(data[,1]))
+    for(i in 1:length(data[,1])){
+      if(data$start.time[i]==0) i.state[i]=1
+      if(data$start.time[i]==data$time1[i]) i.state[i]=2
+      if(data$start.time[i]==data$Stime[i]) i.state[i]=3
+    }
+    i.state <- factor(i.state,levels=states,labels=states)
+    
+    initial.probs <- prop.table(table(i.state))
+    
+    
+    # prepare data set to compute AJ method:
+    ds.prep.AJ <- prep.data.AJ(data, states, tr.states)
+    
+    # reduces to event times:
+    ds.event.AJ <- prep.data.event.AJ(ds.prep.AJ$dNs, ds.prep.AJ$Ys, ds.prep.AJ$sum_dNs, states, tr.states)
+    event.times <- as.numeric(as.character(rownames(ds.event.AJ$dNs)))
+    
+    # AJ estimator:
+    AJ.est <- fun.AJ(ns,states, ds.event.AJ$dNs, ds.event.AJ$Ys, ds.event.AJ$sum_dNs,
+                     s, t,  event.times, initial.probs)
+    
+    ## plot:
     if(s>0){
       chosen.tr<- c("1 2", "1 3", "2 2")      
       
@@ -86,13 +86,13 @@ function(data, s, t="last"){
       title("Diagnostic plot", outer=TRUE,  line=-1)      
     }
     
-      # results:    
+    # results:    
     cat("Parameters:","\n")
     cat("s=", s, "\n")
     cat("t=", AJ.est$t, "\n")
-        
+    
     cat("\n")
-      if(s==0){
-        cat("Markov assumption is not relevant for the estimation of occupation probabilities (s==0).", "\n", "\n")                
-      }        
+    if(s==0){
+      cat("Markov assumption is not relevant for the estimation of occupation probabilities (s==0).", "\n", "\n")                
+    }        
   }

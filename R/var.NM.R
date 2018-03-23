@@ -48,14 +48,14 @@ function(data, ns, states, tr.states, s, t, probs){
     l.id_tr.s <- length(id_tr.s)
     
     e.times<-times[id_tr.s]
-        
+    
     # Titman variances:
     if (s==0){    
       # subset 1
       set_s1<-subset(data,data$s1==1)
       # status 1:
       n_s1<-nrow(set_s1)
-            
+      
       ### 
       s1_times1<-set_s1$time1   
       s1_Stimes<-set_s1$Stime
@@ -261,8 +261,8 @@ function(data, ns, states, tr.states, s, t, probs){
         A<- sum.var.p12.z.n - (1/n_s1)*sum.var.p12.t.A.n
         B<- sum.var.p12.t.n - (1/n_s1)*sum.var.p12.t.B.n
         
-                 S.A <- probs[1,1,i]* A
-                S.B <- (1-probs[1,3,i])* B
+        S.A <- probs[1,1,i]* A
+        S.B <- (1-probs[1,3,i])* B
         
         SZ_ST <- (S.A-S.B)^2
         
@@ -282,10 +282,10 @@ function(data, ns, states, tr.states, s, t, probs){
       } # end for
       
       ### var(p11)
-       var.p11<-sum.var.p11*((probs[1,1,]/n_s1)^2)
+      var.p11<-sum.var.p11*((probs[1,1,]/n_s1)^2)
       
       ### var(p13)
-       var.p13<-sum.var.p13*(((1-probs[1,3,])/n_s1)^2)
+      var.p13<-sum.var.p13*(((1-probs[1,3,])/n_s1)^2)
       
       ### var(p12)      
       var.p12 <- ((1/n_s1)^2)*sum.var.p12
