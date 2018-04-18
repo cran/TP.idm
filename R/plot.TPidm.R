@@ -31,7 +31,7 @@ function(x,chosen.tr="ALL",col="black", ...){
         }else if(length(chosen.tr)>1 & length(chosen.tr)<=3){
           N<-seq(1,length(chosen.tr),1)
           tpg<-layout(matrix(N,1,length(chosen.tr),byrow=TRUE))
-          layout.show(tpg)
+          #layout.show(tpg)
           
           for(i in 1:length(chosen.tr)){
             tit<-paste("p",chosen.tr[[i]])
@@ -50,7 +50,7 @@ function(x,chosen.tr="ALL",col="black", ...){
             N<-c(N,rep(0,m))
           }
           tpg<-layout(matrix(N,n.rows,n.cols,byrow=TRUE))
-          layout.show(tpg)
+          #layout.show(tpg)
           
           for(i in 1:length(chosen.tr)){
             tit<-paste("p",chosen.tr[[i]])
@@ -82,7 +82,7 @@ function(x,chosen.tr="ALL",col="black", ...){
         }else if(length(chosen.tr)>1 & length(chosen.tr)<=3){
           N<-seq(1,length(chosen.tr),1)
           tpg<-layout(matrix(N,1,length(chosen.tr),byrow=TRUE))
-          layout.show(tpg)
+          #layout.show(tpg)
           
           for(i in 1:length(chosen.tr)){
             tit<-paste("p",chosen.tr[[i]])
@@ -100,7 +100,7 @@ function(x,chosen.tr="ALL",col="black", ...){
             N<-c(N,rep(0,m))
           }
           tpg<-layout(matrix(N,n.rows,n.cols,byrow=TRUE))
-          layout.show(tpg)
+          #layout.show(tpg)
           
           for(i in 1:length(chosen.tr)){
             tit<-paste("p",chosen.tr[[i]])
@@ -149,7 +149,7 @@ function(x,chosen.tr="ALL",col="black", ...){
         }else if(length(chosen.tr)>1 & length(chosen.tr)<=3){
           N<-seq(1,length(chosen.tr),1)
           tpg<-layout(matrix(N,1,length(chosen.tr),byrow=TRUE))
-          layout.show(tpg)
+          #layout.show(tpg)
           
           for(i in 1:length(chosen.tr)){
             tit<-paste("p",chosen.tr[[i]])
@@ -158,8 +158,8 @@ function(x,chosen.tr="ALL",col="black", ...){
             lines(x$times[1]$t,x$all.probs[1]$CI[,"upper",chosen.tr[[i]]],type="s",lty=3,col=col[1])
             for(j in 2:nn){
               lines(x$times[j]$t,x$all.probs[j]$CI[,"probs",chosen.tr[[i]]],type="s",col=col[j])
-              lines(x$times[j]$t,x$all.probs[j]$CI[,"lower",chosen.tr[[i]]],type="l",lty=3,col=col[j])
-              lines(x$times[j]$t,x$all.probs[j]$CI[,"upper",chosen.tr[[i]]],type="l",lty=3,col=col[j])
+              lines(x$times[j]$t,x$all.probs[j]$CI[,"lower",chosen.tr[[i]]],type="s",lty=3,col=col[j])
+              lines(x$times[j]$t,x$all.probs[j]$CI[,"upper",chosen.tr[[i]]],type="s",lty=3,col=col[j])
             }
           }
         } else {
@@ -172,7 +172,7 @@ function(x,chosen.tr="ALL",col="black", ...){
             N<-c(N,rep(0,m))
           }
           tpg<-layout(matrix(N,n.rows,n.cols,byrow=TRUE))
-          layout.show(tpg)
+          #layout.show(tpg)
           
           for(i in 1:length(chosen.tr)){
             tit<-paste("p",chosen.tr[[i]])
@@ -208,7 +208,7 @@ function(x,chosen.tr="ALL",col="black", ...){
         }else if(length(chosen.tr)>1 & length(chosen.tr)<=3){
           N<-seq(1,length(chosen.tr),1)
           tpg<-layout(matrix(N,1,length(chosen.tr),byrow=TRUE))
-          layout.show(tpg)
+          #layout.show(tpg)
           
           for(i in 1:length(chosen.tr)){
             tit<-paste("p",chosen.tr[[i]])
@@ -229,7 +229,7 @@ function(x,chosen.tr="ALL",col="black", ...){
             N<-c(N,rep(0,m))
           }
           tpg<-layout(matrix(N,n.rows,n.cols,byrow=TRUE))
-          layout.show(tpg)
+          #layout.show(tpg)
           
           for(i in 1:length(chosen.tr)){
             tit<-paste("p",chosen.tr[[i]])

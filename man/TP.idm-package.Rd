@@ -7,7 +7,8 @@
 \packageTitle{TP.idm}
 }
 \description{
-\packageDescription{TP.idm}
+Estimation of transition probabilities for the illness-death model. Both the Aalen-Johansen estimator for a Markov model and a novel non-Markovian estimator by de Uña-Álvarez and Meira-Machado (2015) <doi:10.1111/biom.12288>, see also Balboa and de Uña-Álvarez (2018) 
+<doi:10.18637/jss.v083.i10>, are included.
 }
 \details{
 
